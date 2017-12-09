@@ -15,6 +15,10 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
     Stage window;  // represents main Stage globally
     Button btnAddMenu,btnDepositMenu,btnWithdrawMenu,btnTransferMenu,btnListMenu,btnAdd,btnHome,btnListHome;
     TextField custName,custAccNum,custBalance,accountList;
+
+    Account testAccount;
+    ChequingAccount testChequingAccount;
+
     public void init(){
 
     }
@@ -32,6 +36,8 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         homeLayout.setAlignment(Pos.CENTER);
         homeLayout.getChildren().addAll(lblHomeMenu,btnAddMenu,btnDepositMenu,btnWithdrawMenu,btnTransferMenu,btnListMenu);
         home = new Scene(homeLayout,500,500);
+        testAccount = new Account(20000, 3400.5, "John Snow");
+        testChequingAccount = new ChequingAccount(20001, 50000, "Robert Baratheon", 2000);
 
         // setting up Add Scene
         Label lblName =new Label("Name:");
