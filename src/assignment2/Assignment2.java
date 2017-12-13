@@ -22,8 +22,8 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
     Button btnTransfer, btnBack;
     VBox transferLayout;
 
-    ArrayList<Account> arrAccount;
-    ArrayList<ChequingAccount> arrChAccount;
+    private Bank trustyBank = new Bank();
+
 
     public void init(){
 
@@ -31,6 +31,9 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
 
     public void start(Stage primaryStage){
         window = primaryStage;
+
+
+
         // setting up Home Scene
         Label lblHomeMenu = new Label("Welcome to Trusty Bank. Please select an option from below");
         btnAddMenu = new Button("Add");btnAddMenu.setOnAction(this);btnAddMenu.setMaxWidth(Double.MAX_VALUE);
@@ -118,6 +121,14 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
     }
 
 
+
+    public void handleTransfer() {
+        System.out.println(tfAmount.getText() + " " + tfFrom.getText() + " " + tfTo.getText());
+
+
+    }
+
+
     public void handle(ActionEvent e){
 
         if (e.getSource()==btnAddMenu){
@@ -137,6 +148,9 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         } else if (e.getSource()==btnWithdrawMenu){
             System.out.println("Withdraw menu btn pressed");
             window.setScene(withdrawScene);
+        } else if (e.getSource()==btnTransfer) {
+
+            this.handleTransfer();
         }
 
     }

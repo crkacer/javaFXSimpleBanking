@@ -1,8 +1,5 @@
 package assignment2;
 
-/**
- * Created by MGXA2 on 12/9/17.
- */
 public class Account {
 
     private long accountNum;
