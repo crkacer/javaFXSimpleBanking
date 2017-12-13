@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import java.lang.*;
 
 import java.util.ArrayList;
 
@@ -103,6 +104,7 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         // setting up List Scene
         Label lblShow = new Label("List of accounts...");
         accountList = new TextField();
+        accountList.setPrefSize(400, 300);
         btnListHome = new Button("Back");btnListHome.setOnAction(this);btnListHome.setMaxWidth(Double.MAX_VALUE);
         VBox listLayout =new VBox();
         listLayout.getChildren().addAll(lblShow,accountList,btnListHome);
@@ -116,16 +118,44 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
 
     }
 
-    public void handleDeposit() {
 
+    public void handleAdd(){
+        System.out.print(1);
+        long accNum = Long.valueOf(custAccNum.getText());
+        String owner = custName.getText();
+        double bal = Double.valueOf(custBalance.getText());
+        trustyBank.addAccount(accNum,bal,owner);
+    }
+    public void handleDeposit() {
+        long accNum = Long.valueOf(txtAccountNum.getText());
+        double amt = Double.valueOf(txtDeposit.getText());
+        trustyBank.depositAccount(accNum,amt);
     }
 
 
 
     public void handleTransfer() {
         System.out.println(tfAmount.getText() + " " + tfFrom.getText() + " " + tfTo.getText());
+        boolean ok = trustyBank.transfer(Long.valueOf(tfFrom.getText()), Long.valueOf(tfTo.getText()), Double.valueOf(tfAmount.getText()));
+        if (ok) {
+            System.out.println("Successful transfer money");
+        } else {
+            System.out.println("Failed to transfer money");
+        }
+    }
 
+    public void handleWithdraw() {
+        boolean ok = trustyBank.withdrawAccount(Long.valueOf(txtWithdrawAccount.getText()), Double.valueOf(txtWithdraw.getText()));
+        if (ok) {
+            System.out.println("Successful withdraw money");
+        } else {
+            System.out.println("Failed to withdraw money");
+        }
 
+    }
+
+    public void handleList() {
+        accountList.setText(trustyBank.printAccounts());
     }
 
 
@@ -136,6 +166,7 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
             window.setScene(addScene);
         } else if (e.getSource()==btnListMenu){
             System.out.println("list accounts btn pressed (on menu scene)");
+            this.handleList();
             window.setScene(listScene);
         } else if (e.getSource()==btnHome||e.getSource()==btnAddHome||e.getSource()==btnListHome||e.getSource()==btnBack|| e.getSource() == btnDepositHome){
             System.out.println("add account btn pressed (on add scene or list scene)");
@@ -151,6 +182,13 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         } else if (e.getSource()==btnTransfer) {
 
             this.handleTransfer();
+        } else if (e.getSource() == btnWithdraw) {
+            this.handleWithdraw();
+
+        } else if(e.getSource()==btnAdd){
+            this.handleAdd();
+        } else if(e.getSource()==btnDeposit){
+            this.handleDeposit();
         }
 
     }

@@ -39,8 +39,8 @@ public class Bank {
     public boolean withdrawAccount(long accNum, double amount){
         int result = findAccount(accNum);
         if(result != -1){
-            accountList[result].withdraw(amount);
-            return true;
+            return accountList[result].withdraw(amount);
+
         }
         return false;
     }
@@ -48,8 +48,8 @@ public class Bank {
         int resultFrom = findAccount(accNumFrom);
         int resultTo = findAccount(accNumTo);
         if(resultFrom != -1 && resultTo != -1){
-            accountList[resultFrom].transfer(accountList[resultTo],amount);
-            return true;
+            return accountList[resultFrom].transfer(accountList[resultTo],amount);
+
         }
         return false;
     }
