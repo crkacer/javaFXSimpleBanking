@@ -13,8 +13,8 @@ import javafx.scene.layout.*;
 public class Assignment2 extends Application implements EventHandler<ActionEvent> {
     private  Scene home,addScene,depositScene,withdrawScene,listScene,transferScene;
     Stage window;  // represents main Stage globally
-    Button btnAddMenu,btnDepositMenu,btnWithdrawMenu,btnTransferMenu,btnListMenu,btnAdd,btnHome,btnListHome;
-    TextField custName,custAccNum,custBalance,accountList;
+    Button btnAddMenu,btnDepositMenu,btnWithdrawMenu,btnTransferMenu,btnListMenu,btnAdd,btnHome,btnListHome,btnDeposit, btnDepositHome, btnWithdraw;
+    TextField custName,custAccNum,custBalance,accountList,txtAccountNum, txtDeposit, txtWithdrawAccount, txtWithdraw;
 
     TextField tfFrom, tfTo, tfAmount;
     Button btnTransfer, btnBack;
@@ -56,6 +56,27 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         VBox addLayout =new VBox();
         addLayout.getChildren().addAll(lblName,custName,lblAccNum,custAccNum,lblBalance,custBalance,btnAdd,btnHome);
         addScene = new Scene(addLayout,500,500);
+
+        // setting up Deposit Scene
+        Label lblAccountNum = new Label("Account Number: ");
+        txtAccountNum = new TextField();
+        Label lblDeposit = new Label("Deposit Amount: ");
+        txtDeposit = new TextField();
+        btnDeposit = new Button("Deposit");btnDeposit.setOnAction(this);
+        btnDepositHome = new Button("Back");btnDepositHome.setOnAction(this);
+        VBox depositLayout = new VBox();
+        depositLayout.getChildren().addAll(lblAccountNum, txtAccountNum,lblDeposit,txtDeposit,btnDeposit,btnDepositHome);
+        depositScene = new Scene(depositLayout, 500,500);
+
+        // setting up Withdraw Scene
+        Label lblWithdrawAccount = new Label("Account Number: ");
+        txtWithdrawAccount = new TextField();
+        Label lblWithdraw = new Label("Withdraw Amount: ");
+        txtWithdraw = new TextField();
+        btnWithdraw = new Button("Withdraw");btnWithdraw.setOnAction(this);
+        VBox withdrawLayout = new VBox();
+        withdrawLayout.getChildren().addAll(lblWithdrawAccount,txtWithdrawAccount,lblWithdraw,txtWithdraw,btnWithdraw,btnHome);
+        withdrawScene = new Scene(withdrawLayout,500,500);
 
         // setting up Transfer scene
         Label lblFrom = new Label("From Account #:");
@@ -100,11 +121,17 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         } else if (e.getSource()==btnListMenu){
             System.out.println("list accounts btn pressed (on menu scene)");
             window.setScene(listScene);
-        } else if (e.getSource()==btnHome||e.getSource()==btnListHome||e.getSource()==btnBack){
+        } else if (e.getSource()==btnHome||e.getSource()==btnListHome||e.getSource()==btnBack|| e.getSource() == btnDepositHome){
             System.out.println("add account btn pressed (on add scene or list scene)");
             window.setScene(home);
         } else if (e.getSource() == btnTransferMenu) {
             window.setScene(transferScene);
+        } else if (e.getSource()==btnDepositMenu){
+            System.out.println("Deposit Menu btn pressed");
+            window.setScene(depositScene);
+        } else if (e.getSource()==btnWithdrawMenu){
+            System.out.println("Withdraw menu btn pressed");
+            window.setScene(withdrawScene);
         }
 
     }
