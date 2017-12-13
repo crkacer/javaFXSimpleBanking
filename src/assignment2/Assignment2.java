@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 
+import java.util.ArrayList;
+
 public class Assignment2 extends Application implements EventHandler<ActionEvent> {
     private  Scene home,addScene,depositScene,withdrawScene,listScene,transferScene;
     Stage window;  // represents main Stage globally
@@ -19,10 +21,9 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
     TextField tfFrom, tfTo, tfAmount;
     Button btnTransfer, btnBack;
     VBox transferLayout;
-    Account testAccount;
 
-    ChequingAccount testChequingAccount;
-
+    ArrayList<Account> arrAccount;
+    ArrayList<ChequingAccount> arrChAccount;
 
     public void init(){
 
@@ -41,8 +42,7 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         homeLayout.setAlignment(Pos.CENTER);
         homeLayout.getChildren().addAll(lblHomeMenu,btnAddMenu,btnDepositMenu,btnWithdrawMenu,btnTransferMenu,btnListMenu);
         home = new Scene(homeLayout,500,500);
-        testAccount = new Account(20000, 3400.5, "John Snow");
-        testChequingAccount = new ChequingAccount(20001, 50000, "Robert Baratheon", 2000);
+
 
         // setting up Add Scene
         Label lblName =new Label("Name:");
@@ -110,6 +110,10 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
     }
 
     public void stop(){
+
+    }
+
+    public void handleDeposit() {
 
     }
 
