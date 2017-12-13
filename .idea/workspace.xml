@@ -21,21 +21,11 @@
       <file leaf-file-name="Assignment2.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/assignment2/Assignment2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="565">
-              <caret line="131" column="15" lean-forward="false" selection-start-line="131" selection-start-column="15" selection-end-line="131" selection-end-column="15" />
+            <state relative-caret-position="204">
+              <caret line="77" column="63" lean-forward="false" selection-start-line="77" selection-start-column="63" selection-end-line="77" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Assignment2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Desktop/huy/javaFXSimpleBanking-master/src/assignment2/Assignment2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="108" column="9" lean-forward="true" selection-start-line="101" selection-start-column="8" selection-end-line="108" selection-end-column="9" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -73,6 +63,7 @@
     <findStrings>
       <find>deposit</find>
       <find>transferScene</find>
+      <find>btnHome</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -659,7 +650,7 @@
       <workItem from="1512768045504" duration="1656000" />
       <workItem from="1512861450813" duration="1624000" />
       <workItem from="1513098806380" duration="252000" />
-      <workItem from="1513185046057" duration="1817000" />
+      <workItem from="1513185046057" duration="2164000" />
     </task>
     <task id="LOCAL-00001" summary="Add Account and ChequingAccount class">
       <created>1512862424265</created>
@@ -672,7 +663,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5349000" />
+    <option name="totallyTimeSpent" value="5696000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="878" extended-state="6" />
@@ -798,8 +789,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/assignment2/Assignment2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="131" column="15" lean-forward="false" selection-start-line="131" selection-start-column="15" selection-end-line="131" selection-end-column="15" />
+        <state relative-caret-position="204">
+          <caret line="77" column="63" lean-forward="false" selection-start-line="77" selection-start-column="63" selection-end-line="77" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

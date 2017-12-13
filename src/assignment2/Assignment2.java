@@ -13,7 +13,7 @@ import javafx.scene.layout.*;
 public class Assignment2 extends Application implements EventHandler<ActionEvent> {
     private  Scene home,addScene,depositScene,withdrawScene,listScene,transferScene;
     Stage window;  // represents main Stage globally
-    Button btnAddMenu,btnDepositMenu,btnWithdrawMenu,btnTransferMenu,btnListMenu,btnAdd,btnHome,btnListHome,btnDeposit, btnDepositHome, btnWithdraw;
+    Button btnAddMenu,btnDepositMenu,btnWithdrawMenu,btnTransferMenu,btnListMenu,btnAdd,btnHome,btnAddHome,btnListHome,btnDeposit, btnDepositHome, btnWithdraw;
     TextField custName,custAccNum,custBalance,accountList,txtAccountNum, txtDeposit, txtWithdrawAccount, txtWithdraw;
 
     TextField tfFrom, tfTo, tfAmount;
@@ -52,9 +52,9 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         Label lblBalance =new Label("Balance:");
         custBalance = new TextField();
         btnAdd = new Button("Add Account");btnAdd.setOnAction(this);
-        btnHome = new Button("Back");btnHome.setOnAction(this);
+        btnAddHome = new Button("Back");btnAddHome.setOnAction(this);
         VBox addLayout =new VBox();
-        addLayout.getChildren().addAll(lblName,custName,lblAccNum,custAccNum,lblBalance,custBalance,btnAdd,btnHome);
+        addLayout.getChildren().addAll(lblName,custName,lblAccNum,custAccNum,lblBalance,custBalance,btnAdd,btnAddHome);
         addScene = new Scene(addLayout,500,500);
 
         // setting up Deposit Scene
@@ -75,6 +75,7 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         txtWithdraw = new TextField();
         btnWithdraw = new Button("Withdraw");btnWithdraw.setOnAction(this);
         VBox withdrawLayout = new VBox();
+        btnHome = new Button("Back"); btnHome.setOnAction(this);
         withdrawLayout.getChildren().addAll(lblWithdrawAccount,txtWithdrawAccount,lblWithdraw,txtWithdraw,btnWithdraw,btnHome);
         withdrawScene = new Scene(withdrawLayout,500,500);
 
@@ -121,7 +122,7 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         } else if (e.getSource()==btnListMenu){
             System.out.println("list accounts btn pressed (on menu scene)");
             window.setScene(listScene);
-        } else if (e.getSource()==btnHome||e.getSource()==btnListHome||e.getSource()==btnBack|| e.getSource() == btnDepositHome){
+        } else if (e.getSource()==btnHome||e.getSource()==btnAddHome||e.getSource()==btnListHome||e.getSource()==btnBack|| e.getSource() == btnDepositHome){
             System.out.println("add account btn pressed (on add scene or list scene)");
             window.setScene(home);
         } else if (e.getSource() == btnTransferMenu) {
