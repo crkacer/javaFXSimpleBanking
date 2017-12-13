@@ -16,8 +16,13 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
     Button btnAddMenu,btnDepositMenu,btnWithdrawMenu,btnTransferMenu,btnListMenu,btnAdd,btnHome,btnListHome;
     TextField custName,custAccNum,custBalance,accountList;
 
+    TextField tfFrom, tfTo, tfAmount;
+    Button btnTransfer, btnBack;
+    VBox transferLayout;
     Account testAccount;
+
     ChequingAccount testChequingAccount;
+
 
     public void init(){
 
@@ -52,6 +57,24 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         addLayout.getChildren().addAll(lblName,custName,lblAccNum,custAccNum,lblBalance,custBalance,btnAdd,btnHome);
         addScene = new Scene(addLayout,500,500);
 
+        // setting up Transfer scene
+        Label lblFrom = new Label("From Account #:");
+        Label lblTo = new Label("To Account #:");
+        Label lblAmount = new Label("Tranfer Amount:");
+        tfFrom = new TextField();
+        tfTo = new TextField();
+        tfAmount = new TextField();
+
+        btnTransfer = new Button("Transfer");
+        btnBack = new Button("Back");
+        btnTransfer.setOnAction(this);
+        btnBack.setOnAction(this);
+
+        transferLayout = new VBox();
+        transferLayout.getChildren().addAll(lblFrom, tfFrom, lblTo, tfTo, lblAmount, tfAmount, btnTransfer, btnBack);
+
+        transferScene = new Scene(transferLayout, 500, 500);
+
         // setting up List Scene
         Label lblShow = new Label("List of accounts...");
         accountList = new TextField();
@@ -74,14 +97,14 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
         if (e.getSource()==btnAddMenu){
             System.out.println("add Menu btn pressed (on menu scene)");
             window.setScene(addScene);
-        }
-        if (e.getSource()==btnListMenu){
+        } else if (e.getSource()==btnListMenu){
             System.out.println("list accounts btn pressed (on menu scene)");
             window.setScene(listScene);
-        }
-        if (e.getSource()==btnHome||e.getSource()==btnListHome){
+        } else if (e.getSource()==btnHome||e.getSource()==btnListHome||e.getSource()==btnBack){
             System.out.println("add account btn pressed (on add scene or list scene)");
             window.setScene(home);
+        } else if (e.getSource() == btnTransferMenu) {
+            window.setScene(transferScene);
         }
 
     }
