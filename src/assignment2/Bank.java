@@ -7,7 +7,7 @@ public class Bank {
     private int numAccounts = 0;
 
     public boolean addAccount(long accNum, double bal, String own){
-        if(findAccount(accNum) == -1){
+        if(findAccount(accNum) == -1 && numAccounts < maxAccount){
             Account newAccount = new Account(accNum,bal,own);
             accountList[numAccounts++] = newAccount;
             return true;
