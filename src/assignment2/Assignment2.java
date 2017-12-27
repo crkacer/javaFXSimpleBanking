@@ -17,8 +17,8 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
     private  Scene home,addScene,depositScene,withdrawScene,listScene,transferScene;
     Stage window;  // represents main Stage globally
     Button btnAddMenu,btnDepositMenu,btnWithdrawMenu,btnTransferMenu,btnListMenu,btnAdd,btnHome,btnAddHome,btnListHome,btnDeposit, btnDepositHome, btnWithdraw;
-    TextField custName,custAccNum,custBalance,accountList,txtAccountNum, txtDeposit, txtWithdrawAccount, txtWithdraw;
-
+    TextField custName,custAccNum,custBalance,txtAccountNum, txtDeposit, txtWithdrawAccount, txtWithdraw;
+    TextArea accountList;
     TextField tfFrom, tfTo, tfAmount;
     Button btnTransfer, btnBack;
     VBox transferLayout;
@@ -32,8 +32,6 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
 
     public void start(Stage primaryStage){
         window = primaryStage;
-
-
 
         // setting up Home Scene
         Label lblHomeMenu = new Label("Welcome to Trusty Bank. Please select an option from below");
@@ -103,7 +101,8 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
 
         // setting up List Scene
         Label lblShow = new Label("List of accounts...");
-        accountList = new TextField();
+        accountList = new TextArea();
+        accountList.setEditable(false);
         accountList.setPrefSize(400, 300);
         btnListHome = new Button("Back");btnListHome.setOnAction(this);btnListHome.setMaxWidth(Double.MAX_VALUE);
         VBox listLayout =new VBox();
@@ -120,7 +119,6 @@ public class Assignment2 extends Application implements EventHandler<ActionEvent
 
 
     public void handleAdd(){
-        System.out.print(1);
         long accNum = Long.valueOf(custAccNum.getText());
         String owner = custName.getText();
         double bal = Double.valueOf(custBalance.getText());

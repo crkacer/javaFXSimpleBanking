@@ -16,14 +16,14 @@ public class Bank {
     }
     public String printAccounts(){
         String temp = "";
-        for(Account account : accountList){
-            temp += String.format("Account Number: %d has a balance of: %f and belongs to %s.\n",account.getAccountNumber(),account.getBalance(),account.getOwner());
+        for(int i = 0; i<numAccounts; i++){
+            temp += String.format("Account Number: %d has a balance of: %f and belongs to %s.%n",accountList[i].getAccountNumber(),accountList[i].getBalance(),accountList[i].getOwner());
 
         }
         return temp;
     }
     public int findAccount(long accNum){
-        for(int i = 0; i < accountList.length; i++){
+        for(int i = 0; i < numAccounts; i++){
             if(accountList[i].getAccountNumber() == accNum){
                 return i;
             }
